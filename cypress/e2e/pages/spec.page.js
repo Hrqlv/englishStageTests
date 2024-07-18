@@ -23,18 +23,39 @@ class CadatroPage {
         cy.get('button[id="signup_submit_button_1"]').click()
     }
 
-    // realizarCadastroDadosEmBranco() {
-    //     cy.get('input[id="signup-personal-data-firstName"]',).type()
-    //     cy.get('input[id="signup-personal-data-lastName"]',).type()
-    //     cy.get('input[id="signup-personal-data-birthDate"]',).type()
-    //     cy.get('input[id="signup-personal-data-cpf"]',).type()
-    //     cy.get('input[id="signup-personal-data-email"]',).type()
-    //     cy.get('input[id="signup-personal-data-email-confirm"]',).type()
-    //     cy.get('input[id="signup-personal-data-password"]',).type()
-    //     cy.get('input[id="signup-personal-data-password-confirm"]',).type()
-    //     cy.get('button[id="signup_submit_button_1"]').click()
-    // }
+    // Função para lidar com alertas
+    handleAlert() {
+        cy.on('window:alert', (text) => {
+            // Verifica o texto do alerta
+            expect(text).to.contains('Preencha este campo.');
+        });
+    }
 
+    validarCamposObrigatorios() {
+        // Preencher o formulário com dados válidos
+        this.realizarCadastroDadosValidos();
+
+        // Campos obrigatórios a serem testados
+        const camposObrigatorios = [
+            'input[id="signup-personal-data-firstName"]',
+            'input[id="signup-personal-data-lastName"]',
+            'input[id="signup-personal-data-birthDate"]',
+            'input[id="signup-personal-data-cpf"]',
+            'input[id="signup-personal-data-email"]',
+            'input[id="signup-personal-data-email-confirm"]',
+            'input[id="signup-personal-data-password"]',
+            'input[id="signup-personal-data-password-confirm"]',
+        ];
+
+        camposObrigatorios.forEach(campo => {
+            // Manuseia o alerta
+            this.handleAlert();
+
+            // Limpa o campo obrigatório e tenta submeter o formulário
+            cy.get(campo).clear();
+            cy.get('button[id="signup_submit_button_1"]').click();
+        });
+    }
 
     realizarValidacaoDeEmailInvalido() {
         cy.get('input[id="signup-personal-data-firstName"]').type(userData.nome)

@@ -14,10 +14,10 @@ describe('Tests Cadastro English Stage - QA Challenge', () => {
     CadastroPage.realizarCadastroDadosValidos()
   })
 
-  // it('Campos Obrigatórios em Branco', () => {
+  it('Campos Obrigatórios em Branco', () => {
     //Deixar cada campo obrigatório em branco um por vez e tentar submeter o formulário
-  //   CadastroPage.realizarCadastroDadosEmBranco()
-  // })
+    CadastroPage.validarCamposObrigatorios()
+  })
 
   it('Formato de Email Inválido', () => {
     //Inserir um email com formato inválido
