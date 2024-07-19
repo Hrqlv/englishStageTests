@@ -9,9 +9,14 @@ describe('Tests Cadastro English Stage - QA Challenge', () => {
     CadastroPage.clicarEmFazerInscricao()
   })
 
-  it('Cadastro com dados válidos', () => {
+  it('Cadastro com dados pessoais válidos', () => {
    //Todos os campos preenchidos corretamente
-    CadastroPage.realizarCadastroDadosValidos()
+    CadastroPage.realizarCadastroDadosPessoais()
+  })
+
+  it('Realizados dados de endereço válidos', () => {
+    //Todos os campos preenchidos corretamente
+    CadastroPage.realizarDadosDeEndereco()
   })
 
   it('Campos Obrigatórios em Branco', () => {
