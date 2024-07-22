@@ -1,4 +1,4 @@
-# ServeRest Cypress Automation Tests
+# English Stage Automation Tests - Cypress
 
 ### About project
 ```
