@@ -3,12 +3,12 @@
 import CadastroPage from '../pages/spec.page'
 
 describe('Tests Cadastro English Stage - QA Challenge', () => {
-
   beforeEach(() => {
     cy.visit('https://qastage.buildbox.one/18/cadastro/')
     CadastroPage.clicarEmFazerInscricao()
   })
 
+  describe('Dados Pessoais e de acesso', () => {
   it('Cadastro com dados pessoais válidos', () => {
    //Todos os campos preenchidos corretamente
     CadastroPage.realizarCadastroDadosPessoais()
@@ -50,3 +50,17 @@ describe('Tests Cadastro English Stage - QA Challenge', () => {
     cy.contains('Data de nascimento inválida.',).should('be.visible');
   })
 })
+
+// describe('Endereço', () => {
+//   it('Primeiramente realizar cadastro validos na tela de dados pessoais', () => {
+//     //Todos os campos preenchidos corretamente
+//      CadastroPage.realizarCadastroDadosPessoais()
+//    })
+
+//    it('Realizados dados de endereço válidos', () => {
+//   //Deixar cada campo obrigatório em branco um por vez e tentar submeter o formulário
+//     CadastroPage.validarCamposObrigatoriosEndereco()
+//   })
+// })
+})
+

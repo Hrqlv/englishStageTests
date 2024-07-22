@@ -125,7 +125,23 @@ class CadatroPage {
     validarMensagemFinal() {
         cy.contains('Thank you for').should('be.visible');
     }
-  }
+
+    // validarCamposObrigatoriosEndereco() {
+    //      this.realizarCadastroDadosPessoais();
+    //     const camposObrigatoriosEndereco = [
+    //         'input[id="signup-address-cep"]',
+    //         'input[id="signup-address-neighborhood"]',
+    //         'input[id="signup-address-street"]',
+    //         'input[id="signup-address-number"]',
+    //     ];
+    
+    //     camposObrigatoriosEndereco.forEach(campo => {
+    //         cy.get(campo).clear();
+    //         cy.get('button[id="signup_submit_button_3"]').click()
+    //         cy.contains('Preencha corretamente', { timeout: 6000 }).should('be.visible');
+    //     });
+    // }
+    }
   
   export default new CadatroPage();
   
