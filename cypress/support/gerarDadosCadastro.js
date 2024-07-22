@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker';
 const { cpf } = require('cpf-cnpj-validator');
 
 module.exports = {
-  generateUserData: () => {
+  gerarDadosUsuario: () => {
     const nome = faker.name.firstName();
     const sobrenome = faker.name.lastName();
     const dataDeNasc = faker.date.past(30, new Date(2000, 0, 1)).toLocaleDateString('pt-BR');
