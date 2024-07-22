@@ -44,23 +44,17 @@ describe('Tests Cadastro English Stage - QA Challenge', () => {
     cy.contains('CPF inválido.',).should('be.visible');
   })
 
+  it('CPF ja existente', () => {
+      //Inserir um CPF ja existente
+      CadastroPage.realizarValidacaoDeCPFexistente()
+      cy.contains('Este CPF já está em uso.',).should('be.visible');
+  })
+
   it('Data de Nascimento Inválida', () => {
     //Inserir uma data de nascimento no futuro ou em um formato inválido
     CadastroPage.realizarValidacaoDeDataNascInvalida()
     cy.contains('Data de nascimento inválida.',).should('be.visible');
   })
 })
-
-// describe('Endereço', () => {
-//   it('Primeiramente realizar cadastro validos na tela de dados pessoais', () => {
-//     //Todos os campos preenchidos corretamente
-//      CadastroPage.realizarCadastroDadosPessoais()
-//    })
-
-//    it('Realizados dados de endereço válidos', () => {
-//   //Deixar cada campo obrigatório em branco um por vez e tentar submeter o formulário
-//     CadastroPage.validarCamposObrigatoriosEndereco()
-//   })
-// })
 })
 

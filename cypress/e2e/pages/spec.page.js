@@ -111,6 +111,17 @@ class CadatroPage {
         cy.get(this.inputConfirmarSenha).type(userData.confirmarSenha)
     }
 
+    realizarValidacaoDeCPFexistente() {
+        cy.get(this.inputNome).type(userData.nome)
+        cy.get(this.inputSobrenome).type(userData.sobrenome)
+        cy.get(this.inputDataNasc).type(userData.dataDeNasc)
+        cy.get(this.inputCPF).type('602.403.040-12')
+        cy.get(this.inputEmail).type(userData.email)
+        cy.get(this.inputConfirmarEmail).type(userData.confirmarEmail)
+        cy.get(this.inputSenha).type(userData.senha)
+        cy.get(this.inputConfirmarSenha).type(userData.confirmarSenha)
+    }
+
     realizarValidacaoDeDataNascInvalida() {
         cy.get(this.inputNome).type(userData.nome)
         cy.get(this.inputSobrenome).type(userData.sobrenome)
@@ -125,22 +136,6 @@ class CadatroPage {
     validarMensagemFinal() {
         cy.contains('Thank you for').should('be.visible');
     }
-
-    // validarCamposObrigatoriosEndereco() {
-    //      this.realizarCadastroDadosPessoais();
-    //     const camposObrigatoriosEndereco = [
-    //         'input[id="signup-address-cep"]',
-    //         'input[id="signup-address-neighborhood"]',
-    //         'input[id="signup-address-street"]',
-    //         'input[id="signup-address-number"]',
-    //     ];
-    
-    //     camposObrigatoriosEndereco.forEach(campo => {
-    //         cy.get(campo).clear();
-    //         cy.get('button[id="signup_submit_button_3"]').click()
-    //         cy.contains('Preencha corretamente', { timeout: 6000 }).should('be.visible');
-    //     });
-    // }
     }
   
   export default new CadatroPage();
