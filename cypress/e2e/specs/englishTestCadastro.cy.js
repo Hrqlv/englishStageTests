@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import CadastroPage from '../pages/spec.page'
+import CadastroPage from '../pages/englishTestCadastro.page'
 
 describe('Tests Cadastro English Stage - QA Challenge', () => {
   beforeEach(() => {
@@ -30,6 +30,12 @@ describe('Tests Cadastro English Stage - QA Challenge', () => {
     cy.contains('Email inválido.').should('be.visible');
     cy.contains('Precisa ser email').should('be.visible');
    
+  })
+
+  it('Formato de Email ja existente', () => {
+    ;//Inserir um email ja existente
+    CadastroPage.realizarValidacaoDeEmailJaExistente()
+    cy.contains('Este email já está em uso.').should('be.visible');
   })
 
   it('Senhas Não Coincidem', () => {

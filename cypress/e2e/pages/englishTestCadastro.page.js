@@ -12,11 +12,12 @@ class CadatroPage {
         this.inputConfirmarEmail = 'input[id="signup-personal-data-email-confirm"]',
         this.inputSenha = 'input[id="signup-personal-data-password"]',
         this.inputConfirmarSenha = 'input[id="signup-personal-data-password-confirm"]',
+        this.inputCEP = 'input[id="signup-address-cep"]',
         this.selectButton = 'button[aria-controls="dropdown-button-1"]',
         this.btnCadastrar = 'button[id="signup_submit_button_1"]',
-        this.inputCEP = 'input[id="signup-address-cep"]',
         this.numEndereco = 'input[id="signup-address-number"]',
-        this.complemento = 'input[id="signup-address-complement"]'
+        this.complemento = 'input[id="signup-address-complement"]',
+        this.termosCondicoes = 'input[id="signup-personal-data-lgpd"]'
     }
 
     clicarEmFazerInscricao() {
@@ -34,7 +35,7 @@ class CadatroPage {
         cy.get(this.inputConfirmarSenha).type(userData.confirmarSenha)
         cy.get(this.selectButton).click();
         cy.contains('span', 'Beginner').click();
-        cy.get('input[id="signup-personal-data-lgpd"]').click()
+        cy.get(this.termosCondicoes).click()
         cy.get(this.btnCadastrar).click()
     }
 
@@ -73,7 +74,7 @@ class CadatroPage {
             cy.get(campo).clear();
             cy.get(this.selectButton).click();
             cy.contains('span', 'Beginner').click();
-            cy.get('input[id="signup-personal-data-lgpd"]').click()
+            cy.get(this.termosCondicoes).click()
             cy.get(this.btnCadastrar).click()
         });
     }
@@ -85,6 +86,17 @@ class CadatroPage {
         cy.get(this.inputCPF).type(userData.cpf)
         cy.get(this.inputEmail).type('email-invalido')
         cy.get(this.inputConfirmarEmail).type('email-invalido')
+        cy.get(this.inputSenha).type(userData.senha)
+        cy.get(this.inputConfirmarSenha).type(userData.confirmarSenha)
+    }
+
+    realizarValidacaoDeEmailJaExistente() {
+        cy.get(this.inputNome).type(userData.nome)
+        cy.get(this.inputSobrenome).type(userData.sobrenome)
+        cy.get(this.inputDataNasc).type(userData.dataDeNasc)
+        cy.get(this.inputCPF).type(userData.cpf)
+        cy.get(this.inputEmail).type('rivaldo01@gmail.com')
+        cy.get(this.inputConfirmarEmail).type('rivaldo01@gmail.com')
         cy.get(this.inputSenha).type(userData.senha)
         cy.get(this.inputConfirmarSenha).type(userData.confirmarSenha)
     }
