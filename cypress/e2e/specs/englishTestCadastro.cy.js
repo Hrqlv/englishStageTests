@@ -4,13 +4,13 @@ import CadastroPage from '../pages/englishTestCadastro.page'
 
 describe('Tests Cadastro English Stage - QA Challenge', () => {
   beforeEach(() => {
-    cy.visit('https://qastage.buildbox.one/18/cadastro/')
+    cy.visit('/')
     CadastroPage.clicarEmFazerInscricao()
   })
 
-  describe('Dados Pessoais e de acesso', () => {
+  describe('Dados Pessoais de acesso e de Endereço', () => {
   it('Cadastro com dados pessoais válidos', () => {
-   //Todos os campos preenchidos corretamente
+    //Todos os campos preenchidos corretamente
     CadastroPage.realizarCadastroDadosPessoais()
   })
 
@@ -33,7 +33,7 @@ describe('Tests Cadastro English Stage - QA Challenge', () => {
   })
 
   it('Formato de Email ja existente', () => {
-    ;//Inserir um email ja existente
+    //Inserir um email ja existente
     CadastroPage.realizarValidacaoDeEmailJaExistente()
     cy.contains('Este email já está em uso.').should('be.visible');
   })
@@ -45,15 +45,15 @@ describe('Tests Cadastro English Stage - QA Challenge', () => {
   })
 
   it('CPF Inválido', () => {
-    //Inserir um CPF com formato inválido
+    //Inserir um cpf com formato inválido
     CadastroPage.realizarValidacaoDeCPFInvalido()
     cy.contains('CPF inválido.',).should('be.visible');
   })
 
   it('CPF ja existente', () => {
-      //Inserir um CPF ja existente
-      CadastroPage.realizarValidacaoDeCPFexistente()
-      cy.contains('Este CPF já está em uso.',).should('be.visible');
+    //Inserir um cpf ja existente
+    CadastroPage.realizarValidacaoDeCPFexistente()
+    cy.contains('Este CPF já está em uso.',).should('be.visible');
   })
 
   it('Data de Nascimento Inválida', () => {
@@ -63,4 +63,3 @@ describe('Tests Cadastro English Stage - QA Challenge', () => {
   })
 })
 })
-
